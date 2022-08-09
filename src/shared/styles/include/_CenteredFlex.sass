@@ -1,0 +1,12 @@
+@use 'sass:list'
+
+$_knownDirectionValues: (row, column, row-reverse, column-reverse)
+
+@mixin useCenteredFlex($direction)
+  @if not list.index($_knownDirectionValues, $direction)
+    @error 'Invalid direction: #{$direction}. Value must be one of #{$_knownDirectionValues}.'
+
+  display: flex
+  flex-direction: $direction
+  justify-content: center
+  align-items: center

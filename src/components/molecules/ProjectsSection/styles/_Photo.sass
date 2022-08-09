@@ -1,0 +1,12 @@
+@mixin useElementStyles
+  pointer-events: none
+  position: absolute
+  top: -16% // position a little above its corresponding photo title
+  right: min(16%, 8vw)
+  width: clamp(calc(var(--size-1) * 44), 28vw, calc(var(--size-1) * 100))
+  aspect-ratio: 0.72 // portrait ratio
+  object-fit: cover
+  object-position: center
+  opacity: 0 // revealed on hover to photo title
+  z-index: 1 // place above dividers from other photo projcects
+  transition: all .16s ease-in

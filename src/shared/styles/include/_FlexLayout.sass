@@ -1,0 +1,19 @@
+@use 'sass:list'
+
+$_knownDirectionValues: (row, column, row-reverse, column-reverse)
+$_knownJustifyValues: (flex-start, flex-end, center, space-between, space-around, space-evenly)
+$_knownAlignValues: (flex-start, flex-end, center, stretch, baseline)
+$_sharedErrorEnding: 'NOTE: This propery might support more values than the ones currently allowed by this mixin. If you need to use one of those, please update the validation checks relevant to this property.'
+  
+@mixin useFlexLayout($direction, $justify, $align)
+  @if not list.index($_knownDirectionValues, $direction)
+    @error 'Invalid direction: #{$direction}. Value must be one of #{$_knownDirectionValues}. #{$_sharedErrorEnding}'
+  @if not list.index($_knownJustifyValues, $justify)
+    @error 'Invalid justify: #{$justify}. Value must be one of #{$_knownJustifyValues}. #{$_sharedErrorEnding}'
+  @if not list.index($_knownAlignValues, $align)
+    @error 'Invalid align: #{$align}. Value must be one of #{$_knownAlignValues}. #{$_sharedErrorEnding}'
+
+  display: flex
+  flex-direction: $direction
+  justify-content: $justify
+  align-items: $align

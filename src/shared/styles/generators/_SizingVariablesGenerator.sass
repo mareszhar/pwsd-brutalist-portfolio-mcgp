@@ -1,0 +1,16 @@
+@mixin generateSizingVariables($minimumStaticUnit, $minimumVwUnit, $minimumVhUnit)
+  --size-base-unit: #{$minimumStaticUnit}
+  --size-base-vw: #{$minimumVwUnit}
+  --size-base-vh: #{$minimumVhUnit}
+
+  // generate static units:
+  @for $i from 1 through 24
+    --size-#{$i}: calc(var(--size-base-unit) * #{$i})
+
+  // generate vw increment units:
+  @for $i from 1 through 24
+    --size-vwi-#{$i}: calc(var(--size-base-vw) * #{$i})
+
+  // generate vh increment units:
+  @for $i from 1 through 24
+    --size-vhi-#{$i}: calc(var(--size-base-vh) * #{$i})

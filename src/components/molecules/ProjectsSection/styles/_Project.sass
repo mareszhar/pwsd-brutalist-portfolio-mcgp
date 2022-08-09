@@ -1,0 +1,12 @@
+@use '@styles' as Reusables
+
+@mixin useSectionStyles
+  position: relative
+  padding: 2.8vh 0
+  font-family: 'Bigilla', serif
+  font-size: var(--font-size-xlarge)
+  font-weight: 700
+  text-transform: uppercase
+
+  &:not(:last-child)
+    @include Reusables.useLineDivider()

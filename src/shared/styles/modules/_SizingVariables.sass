@@ -1,0 +1,15 @@
+@use '@styles' as Reusables
+@use '../generators/_SizingVariablesGenerator'
+@use '../controllers/SizingControls'
+
+:root
+  @include SizingVariablesGenerator.generateSizingVariables(SizingControls.$minimumStaticUnit, SizingControls.$minimumVwUnit, SizingControls.$minimumVhUnit)
+  
+  --font-size-small: clamp(var(--size-3), 2vw, var(--size-4))
+  --font-size-medium: clamp(var(--size-4), 2.8vw, var(--size-8))
+  --font-size-large: clamp(var(--size-5), 4.2vw, var(--size-20))
+  --font-size-xlarge: clamp(var(--size-8), 8.4vw, calc(var(--size-1) * 44))
+  --font-size-huge: clamp(var(--size-12), 10.2vw, calc(var(--size-1) * 52))
+
+  @media screen and (min-width: Reusables.useScreenWidth(desktopXSmall))
+    --font-size-small: var(--size-6)

@@ -1,0 +1,28 @@
+@use 'sass:map';
+
+$_screenWidthsMap: (
+  mobileSmall: 256px,
+  mobileRegular: 320px,
+  mobileMedium: 384px,
+  mobileLarge: 448px,
+  tabletSmall: 512px,
+  tabletRegular: 640px,
+  tabletMedium: 768px,
+  tabletLarge: 896px,
+  desktopSmall: 1024px,
+  desktopRegular: 1216px,
+  desktopMedium: 1600px,
+  desktopLarge: 1792px,
+  desktopXSmall: 2048px,
+  desktopXRegular: 2304px,
+  desktopXMedium: 2560px,
+  desktopXLarge: 2816px,
+  ultraWideSmall: 3072px,
+  ultraWideRegular: 3584px,
+  ultraWideMedium: 4096px,
+  ultraWideLarge: 5120px
+);
+
+@function useScreenWidth($screenWidthAlias) {
+  @return map.get($_screenWidthsMap, $screenWidthAlias);
+}

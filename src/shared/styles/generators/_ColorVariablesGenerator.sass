@@ -1,0 +1,18 @@
+@use 'sass:map'
+
+@mixin generateColorVariables($colorCategoryMap)
+  @each $_colorCategory, $_color in $colorCategoryMap
+    // extract color values:
+    $_hue: hue($_color)
+    $_saturation: saturation($_color)
+    $_lightness: lightness($_color)
+
+    // create color variables that follow this format: --color-category: h, s, l
+    // (this format makes it easy to adjust the alpha of each color in the theme)
+    --color-#{$_colorCategory}: #{$_hue}, #{$_saturation}, #{$_lightness}
+
+    --color-#{$_colorCategory}-hue: #{$_hue}
+    --color-#{$_colorCategory}-saturation: #{$_saturation}
+    --color-#{$_colorCategory}-lightness: #{$_lightness}
+
+// NOTE: For more generators (such as that of levels, tinted colors, and gradients, check my other repos.)

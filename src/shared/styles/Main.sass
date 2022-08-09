@@ -1,0 +1,21 @@
+@use './modules/Resets'
+@use './modules/FontDefinitions'
+@use './modules/SizingVariables'
+@use './modules/ColorVariables'
+@use './modules/LocomotiveScroll'
+
+:root
+  font-family: 'Sk-Modernist', monospace
+  font-size: var(--font-size-small)
+  font-weight: 400
+
+  font-synthesis: none
+  text-rendering: optimizeLegibility
+  -moz-osx-font-smoothing: grayscale
+  -webkit-text-size-adjust: 100%
+  text-size-adjust: 100%
+
+body
+  padding: calc(var(--size-2) + var(--size-vhi-2)) calc(var(--size-2) + var(--size-vwi-8))
+  background-color: hsl(var(--color-main))
+  color: hsl(var(--color-contrast))

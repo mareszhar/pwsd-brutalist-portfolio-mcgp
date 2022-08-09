@@ -1,0 +1,13 @@
+@mixin useElementStyles
+  cursor: pointer
+  &:hover
+    opacity: 0
+  &:hover + .photo
+    opacity: 1
+    transform: perspective(100vw) translate3d(-16px, -32px, 8px) rotateZ(8deg)
+    transform-style: preserve-3d
+  &:hover ~ .marquee
+    opacity: 1
+    z-index: 1 // stack marquee above photo
+    .text-stream
+      animation-play-state: running

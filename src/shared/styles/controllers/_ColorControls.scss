@@ -1,0 +1,9 @@
+// theme colors:
+$rawDarkness: hsl(0, 0%, 4%);
+$focusedLight: hsl(0, 0%, 100%);
+
+$colorCategoryMap: (
+  'main': $rawDarkness,
+  'contrast': $focusedLight
+);
+

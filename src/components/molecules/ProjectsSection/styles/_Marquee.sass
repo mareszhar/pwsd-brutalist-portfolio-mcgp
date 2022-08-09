@@ -1,0 +1,39 @@
+// I've named my variables here to make understanding how the marquee effect is implemented as easy as possible.
+// But, if you need more details, you can check out this tutorial and it's related documentation:
+// https://tympanus.net/codrops/2020/03/31/css-only-marquee-effect/
+
+@mixin useSectionStyles
+  pointer-events: none
+  position: absolute
+  width: 100%
+  top: 50%
+  transform: translateY(-50%)
+  overflow-x: hidden
+  mix-blend-mode: difference
+  opacity: 0
+  transition: all .2s ease-out
+
+  .text-stream
+    display: flex
+    wrap: no-wrap
+    width: fit-content
+    // the --single-word-width variable used below will be defined in the
+    // component because it relies on v-bind()
+    --one-word-out-of-sight: calc(var(--single-word-width) * -1)
+    --two-words-out-of-sight: calc(var(--single-word-width) * -2)
+    --offset: 20vw
+    //...not a magic number. helps make the word out of sight be partially visible
+    --move-initial: calc(var(--one-word-out-of-sight) + var(--offset))
+    --move-final: calc(var(--two-words-out-of-sight) + var(--offset))
+    animation: stream 5s linear infinite
+    animation-play-state: paused
+    
+    .word
+      padding: 0 2vw
+      white-space: nowrap
+
+@keyframes stream
+  0%
+    transform: translateX(var(--move-initial))
+  100%
+    transform: translateX(var(--move-final))

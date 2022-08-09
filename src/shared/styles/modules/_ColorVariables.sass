@@ -1,0 +1,5 @@
+@use '../generators/ColorVariablesGenerator'
+@use '../controllers/ColorControls'
+
+:root
+  @include ColorVariablesGenerator.generateColorVariables(ColorControls.$colorCategoryMap)
